@@ -1,0 +1,64 @@
+/* Team page: the game's greens, with mint, violet and amber from the UnState identity. */
+:root{--paper:#fffff6;--green:#154c37;--ink:#123629;--muted:#3c5a4d;--mint:#2fe6c8;--ease:cubic-bezier(.22,1,.36,1);color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:clamp(16px,3vw,40px);overflow-x:clip;color:var(--ink);background:#dcecd6;font:400 1rem/1.75 "IBM Plex Sans Arabic",Tahoma,sans-serif}
+h1,h2,p{margin:0}
+.panel,.person,.intro,.people{direction:rtl;text-align:right}
+img{max-width:100%;height:auto}
+.defs{position:absolute;width:0;height:0}
+a:focus-visible{outline:3px solid #07261d;outline-offset:3px}
+.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(151deg,#bacfb2,#e5efdc 47%,#c5dfc4)}
+.ambient::before{content:"";position:absolute;inset:-8%;filter:blur(clamp(48px,9vw,128px));background:radial-gradient(ellipse at 12% 0,#14513b 2%,transparent 34%),radial-gradient(ellipse at 98% 12%,#8f7cff 1%,transparent 30%),radial-gradient(ellipse at 96% 92%,#2fe6c8 2%,transparent 36%),radial-gradient(ellipse at 4% 96%,#ffc65a 1%,transparent 26%)}
+
+.panel{width:min(100%,1120px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);border-radius:36px;overflow:hidden;background:rgb(255 255 246/.9);box-shadow:0 30px 70px rgb(18 54 41/.24)}
+.brand{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:clamp(24px,3.4vw,44px);min-height:600px;color:var(--paper);background:radial-gradient(ellipse at 100% 0,#6b57d6aa,transparent 52%),radial-gradient(ellipse at 0 100%,#17a58caa,transparent 54%),linear-gradient(150deg,#07130f,#123629 60%,#154c37)}
+.logo{width:min(290px,78%);align-self:flex-start;margin-inline-start:-4px}
+.intro{margin-top:clamp(20px,3vw,34px);max-width:31ch}
+.badge{display:inline-block;white-space:nowrap;direction:rtl;padding:4px 14px;border-radius:999px;background:rgb(47 230 200/.16);border:1px solid rgb(47 230 200/.55);font-size:.86rem;font-weight:600;color:#c9fff4}
+h1{margin-top:14px;font-size:clamp(2rem,3.7vw,2.9rem);line-height:1.35;font-weight:700;text-wrap:balance}
+.lead{margin-top:14px;max-width:27ch;color:#d9ebdd}
+.actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:22px}
+.cta,.ghost{display:inline-flex;gap:8px;align-items:center;min-height:46px;padding:.35rem 1.3rem;border-radius:999px;font-weight:700;text-decoration:none;transition:transform 160ms var(--ease)}
+.cta{background:var(--mint);color:#07261d}
+.ghost{color:var(--paper);border:1.5px solid rgb(255 255 246/.5)}
+.cta:hover,.ghost:hover{transform:translateY(-2px)}
+.hero{position:absolute;z-index:-1;left:14px;transform:scaleX(-1);bottom:-8px;width:min(43%,218px);filter:drop-shadow(0 0 26px rgb(47 230 200/.4));animation:bob 4.5s ease-in-out infinite alternate}
+@keyframes bob{from{transform:scaleX(-1)}to{transform:scaleX(-1) translateY(-10px)}}
+
+.people{display:flex;flex-direction:column;justify-content:center;gap:14px;padding:clamp(20px,3vw,40px)}
+.person{position:relative;display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:92px;padding:8px;padding-inline:10px 18px;border-radius:28px;color:inherit;text-decoration:none;background:#fff;border:2px solid var(--c);transition:transform 180ms var(--ease),box-shadow 180ms var(--ease)}
+a.person:hover{transform:translateX(-6px);box-shadow:0 12px 28px rgb(18 54 41/.16)}
+.avatar{position:relative;width:76px;height:76px;border-radius:22px;overflow:hidden;background:color-mix(in srgb,var(--c) 34%,#fff)}
+.people h2{font-size:1.3rem;font-weight:700;line-height:1.5;margin-bottom:2px}
+.avatar img{transform:scaleX(-1);position:absolute;right:var(--x);top:var(--y);width:var(--w);max-width:none}
+.who{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}
+.who strong{font-size:1.16rem;line-height:1.5;font-weight:700}
+.who span{color:var(--muted);font-weight:500}
+.who i{font-style:normal}
+.in{display:grid;place-items:center;width:46px;height:46px;border-radius:16px;background:var(--green);color:#fff;transition:background 160ms}
+a.person:hover .in{background:#0a66c2}
+.in svg{width:22px;height:22px}
+.in.none{background:#eaf2e2;color:var(--muted);font-size:1.4rem;font-weight:700}
+footer{font-size:.9rem;color:#24483a;text-align:center}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:10px}
+.footer-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:.25rem 1.2rem;border-radius:999px;background:rgb(255 255 246/.9);border:1px solid #b5cbb7;color:var(--green);font-weight:700;text-decoration:none;transition:transform 160ms var(--ease)}
+.footer-links a:first-child{background:var(--green);border-color:var(--green);color:var(--paper)}
+.footer-links a:hover{transform:translateY(-2px)}
+
+@media(max-width:860px){
+  body{justify-content:flex-start}
+  .panel{grid-template-columns:minmax(0,1fr);border-radius:30px}
+  .brand{min-height:0;padding-bottom:34px}
+  .lead{max-width:24ch}
+}
+@media(max-width:460px){
+  .brand{padding-bottom:30px}
+  .hero{width:33%;left:8px}
+  .lead{max-width:26ch}
+  .people{padding:16px 14px 20px}
+  .person{grid-template-columns:60px minmax(0,1fr) auto;gap:12px;padding-inline-end:12px}
+  .avatar{width:60px;height:60px;border-radius:18px}
+  .who strong{font-size:1.04rem}.who span{font-size:.94rem}
+  .in{width:40px;height:40px;border-radius:14px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

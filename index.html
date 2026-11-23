@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f7ed">
+<meta name="description" content="عرض تفاعلي من فريق UnState: أقل عدد من الحساسات يراقب كل خطوط شبكة الكهرباء، بخوارزمية QAOA.">
+<title>UnState · التوزيع الأمثل لحساسات الشبكة (QAOA)</title>
+<link rel="icon" href="product/assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="product/style.css?v=5">
+</head>
+<body>
+<svg class="defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="pad" x2="0" y2="1"><stop stop-color="#eff6dd"/><stop offset="1" stop-color="#a7cba7"/></linearGradient>
+<linearGradient id="metal" x2="1" y2="1"><stop stop-color="#94bf94"/><stop offset="1" stop-color="#4e8a62"/></linearGradient>
+<symbol id="bolt" viewBox="0 0 24 24"><path d="M13.8 2 5 13.4h6L10.2 22 19 10.6h-6L13.8 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+<symbol id="station-art" viewBox="0 0 100 100">
+<path d="M8 60 48 40l44 16v13L51 89 8 73Z" fill="#7fae8d"/>
+<path d="M51 76 92 56v13L51 89Z" fill="#639775"/>
+<path d="M8 60 48 40l44 16-41 20Z" fill="url(#pad)" stroke="#57856b" stroke-width="1.5"/>
+<path d="M18 60 49 45l31 11-29 15Z" fill="none" stroke="#789a79" stroke-width="1.3" stroke-dasharray="2 3"/>
+<path d="M24 54V38l48-7v23M24 38l12 6 36-13M36 44v8" fill="none" stroke="#527d64" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37 48v14l17 7 17-10V46Z" fill="#34684e"/>
+<path d="M37 48l17 7 17-9-17-7Z" fill="url(#metal)" stroke="#356c51"/>
+<path d="M54 55v14l17-10V46Z" fill="#578f67"/>
+<path d="M41 53v8m4-6v8m4-7v8m9-7v8m4-10v8m4-10v8" stroke="#abd1a2" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M47 45v-8m7 11v-9m7 5v-8" stroke="#265842" stroke-width="2.6" stroke-linecap="round"/>
+<path d="M44 37h6m1 2h6m1-3h6" stroke="#e5efd0" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M12 63v-9m11 13v-9m11 14v-9m39 1v-9m11 4v-9" stroke="#547d65" stroke-width="1.25" stroke-linecap="round"/>
+</symbol>
+</defs></svg>
+<div class="ambient" aria-hidden="true"></div>
+
+<div class="container">
+  <header class="top">
+    <a class="identity" href="#top" aria-label="UnState">
+      <span class="tile"><img src="product/assets/unstate-mark.png" alt="" width="392" height="277"></span>
+      <strong dir="ltr">Un<b>State</b></strong>
+    </a>
+    <nav class="nav" aria-label="التنقل">
+      <a href="#try"><span aria-hidden="true">🕹️</span> جرّب الشبكة</a>
+      <a href="product/team.html" target="_blank" rel="noopener"><span aria-hidden="true">👋</span> الفريق</a>
+      <a href="https://eyes-on-the-grid-kacst.ovalibex32.chatgpt.site/" target="_blank" rel="noopener"><span aria-hidden="true">🎮</span> اللعبة</a>
+    </nav>
+    <div class="logos">
+      <img src="product/assets/kacst.png" alt="مدينة الملك عبدالعزيز للعلوم والتقنية KACST" width="554" height="180">
+      <img src="product/assets/academy32.png" alt="Academy 32" width="368" height="265" class="tall">
+      <img src="product/assets/sqca.png" alt="جمعية حوسبة الكم" width="200" height="97">
+      <img src="product/assets/ibm-quantum.png" alt="IBM Quantum" width="320" height="48" class="short">
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="copy">
+        <div class="badges">
+          <span class="badge primary"><i aria-hidden="true">⚡</i><span>فريق <bdi>UnState 1</bdi> · تحدي الحوسبة الكمومية</span></span>
+          <span class="badge"><i aria-hidden="true">⚛️</i><bdi>QAOA</bdi> · 6 كيوبتات</span>
+        </div>
+        <h1>التوزيع الأمثل لحساسات شبكة الكهرباء</h1>
+        <p class="lead">عرض تفاعلي مبسّط يشرح المسألة، لماذا تكبر صعوبتها مع التوسع، كيف تعمل خوارزمية <bdi>QAOA</bdi>، وما الذي يثبته هذا النموذج المصغّر بوضوح.</p>
+        <div class="actions">
+          <a class="cta" href="https://eyes-on-the-grid-kacst.ovalibex32.chatgpt.site/" target="_blank" rel="noopener">العب اللعبة <span aria-hidden="true">🎮</span></a>
+          <a class="soft" href="#try">جرّب الشبكة <span aria-hidden="true">👇</span></a>
+        </div>
+        <ol class="journey" aria-label="رحلة الطاقة">
+          <li><span aria-hidden="true">🔍</span> المصدر</li>
+          <li aria-current="step"><span aria-hidden="true">⚡</span> الطريق</li>
+          <li><span aria-hidden="true">🔋</span> المخزن</li>
+          <li><span aria-hidden="true">💡</span> الاستخدام</li>
+        </ol>
+      </div>
+      <div class="yard-wrap" aria-hidden="true">
+<svg class="yard" viewBox="0 0 440 330">
+<path d="M35 176 211 79l194 77v37L221 298 35 215Z" fill="#a2c6a5"/>
+<path d="M221 259 405 156v37L221 298Z" fill="#77a385"/>
+<path d="M35 176 211 79l194 77-184 103Z" fill="url(#pad)" stroke="#78a389" stroke-width="2"/>
+<path d="m57 176 154-83 171 65-161 85Z" fill="none" stroke="#86a98a" stroke-dasharray="3 7" stroke-width="2"/>
+<path d="m109 173 77-46 130 49M120 184l98 43 98-51" fill="none" stroke="#608e72" stroke-width="3" stroke-linejoin="round"/>
+<use href="#station-art" x="150" y="52" width="117" height="117"/><use href="#station-art" x="54" y="101" width="130" height="130"/><use href="#station-art" x="261" y="101" width="130" height="130"/><use href="#station-art" x="145" y="124" width="150" height="150"/>
+<path d="M220 169v-30" stroke="#276948" stroke-width="3" stroke-linecap="round"/><circle cx="220" cy="135" r="14" fill="#f1f8dc" stroke="#3d7956" stroke-width="2"/><use href="#bolt" x="212" y="127" width="16" height="16" color="#235b40"/>
+</svg>
+        <img class="fest" src="product/assets/qiskit-fall-fest-2026.png" alt="" width="318" height="318">
+      </div>
+    </section>
+
+    <section class="play" id="try" aria-labelledby="try-title">
+      <div class="card">
+        <h2 id="try-title"><span aria-hidden="true">🕹️</span> جرّب بنفسك على الشبكة المصغّرة</h2>
+        <p class="note">6 محطات · 7 خطوط. اضغط على أي محطة (0 إلى 5) لوضع أو إزالة حساس. الخط المتصل بمحطة عليها حساس يُعد مراقَبًا.</p>
+        <div class="controls" role="group" aria-label="أمثلة جاهزة">
+          <button type="button" data-preset="">🧹 بدون حساسات</button>
+          <button type="button" data-preset="1,4">👀 مثال <bdi dir="ltr">{1, 4}</bdi></button>
+          <button type="button" data-preset="1,3,5">✅ حل مثالي <bdi dir="ltr">{1, 3, 5}</bdi></button>
+          <button type="button" data-preset="0,2,4">✅ حل مثالي <bdi dir="ltr">{0, 2, 4}</bdi></button>
+        </div>
+        <div class="board"><svg id="gridSvg" viewBox="0 0 460 280" role="group" aria-label="شبكة الكهرباء: ست محطات وسبعة خطوط"><g id="edgesLayer"></g><g id="nodesLayer"></g></svg></div>
+        <div class="legend">
+          <span><i class="dot on"></i>محطة بحساس</span>
+          <span><i class="dot off"></i>محطة بدون حساس</span>
+          <span><i class="wire ok"></i>خط مراقَب</span>
+          <span><i class="wire bad"></i>خط غير مراقَب</span>
+        </div>
+      </div>
+
+      <div class="card" id="qaoa">
+        <h2><span aria-hidden="true">📊</span> مؤشرات التغطية والتكلفة <bdi dir="ltr" class="soft-text">(P = 2)</bdi></h2>
+        <div class="kpis">
+          <div class="kpi mint"><span class="label">📡 الحساسات المختارة</span><span class="val" dir="ltr" id="kpiSensors">3 / 6</span></div>
+          <div class="kpi amber"><span class="label">🙈 الخطوط غير المراقَبة</span><span class="val" dir="ltr" id="kpiUncovered">0 / 7</span></div>
+          <div class="kpi violet"><span class="label">🧮 التكلفة <bdi dir="ltr">C(x)</bdi></span><span class="val" dir="ltr" id="kpiCost">3.0</span></div>
+          <div class="kpi green"><span class="label">🔢 الاختيار <bdi dir="ltr">x0 … x5</bdi></span><span class="val bits" dir="ltr" id="kpiBitstring">(0,1,0,1,0,1)</span></div>
+        </div>
+        <p id="statusBox" class="status ok" role="status"></p>
+
+        <h3><span aria-hidden="true">📈</span> احتمال الوصول للحل الأمثل حسب عمق <bdi>QAOA</bdi></h3>
+        <div class="bars">
+          <div class="bar"><span>🎲 تخمين عشوائي <bdi dir="ltr">(2/64)</bdi></span><div class="track"><div class="fill guess" style="--v:3.1%"></div></div><strong dir="ltr">3.1%</strong></div>
+          <div class="bar"><span>⚛️ <bdi dir="ltr">QAOA (p = 1)</bdi></span><div class="track"><div class="fill" style="--v:11%"></div></div><strong dir="ltr">11%</strong></div>
+          <div class="bar"><span>⚛️ <bdi dir="ltr">QAOA (p = 2)</bdi></span><div class="track"><div class="fill" style="--v:28%"></div></div><strong dir="ltr">28%</strong></div>
+          <div class="bar"><span>⚛️ <bdi dir="ltr">QAOA (p = 3)</bdi></span><div class="track"><div class="fill" style="--v:51%"></div></div><strong dir="ltr">51%</strong></div>
+        </div>
+        <p class="note">النتائج من محاكاة مثالية خالية من الضوضاء على 6 كيوبتات (أفضل من 6 محاولات بدء لـ <bdi>COBYLA</bdi>).</p>
+      </div>
+    </section>
+
+    <section class="story" aria-label="الأسئلة الأربعة">
+      <article class="card amber">
+        <span class="emoji" aria-hidden="true">🔌</span><span class="step">1 · المشكلة وصاحبها</span>
+        <h2>ما المشكلة ومن يواجهها؟</h2>
+        <p>مشغّلو شبكات النقل والكهرباء يحتاجون لمراقبة خطوط النقل عبر حساسات في محطات التحويل. لأن الحساسات مكلفة، نريد اختيار <strong>أقل عدد من المحطات</strong> بحيث يلمس كل خط محطة واحدة على الأقل (مسألة الغطاء الرأسي الأصغر، <bdi>Minimum Vertex Cover</bdi>).</p>
+      </article>
+      <article class="card green">
+        <span class="emoji" aria-hidden="true">🤯</span><span class="step">2 · صعوبة التوسع</span>
+        <h2>لماذا تصعب عند كبر الشبكة؟</h2>
+        <p>6 محطات تعني 64 احتمالًا فقط (2 أس 6)؛ بينما 1,000 محطة تعني عددًا هائلًا من الاحتمالات (2 أس 1000). الطرق الكلاسيكية الذكية قوية اليوم، والسؤال الحقيقي هو أين تتوقف قابليتها للتوسع مع تعقيد الشبكات.</p>
+      </article>
+      <article class="card violet">
+        <span class="emoji" aria-hidden="true">🌀</span><span class="step">3 · فكرة <bdi>QAOA</bdi></span>
+        <h2>ماذا تفعل الخوارزمية الكمومية بشكل مختلف؟</h2>
+        <p>نحوّل التكلفة إلى طور (<bdi>Phase</bdi>) عبر طبقة التكلفة، ثم نسمح للحالات بالتفاعل وتبادل السعة عبر طبقة الخلط (<bdi>Mixer</bdi>). بتكرار الطبقات وضبط الزوايا عبر مُحسِّن كلاسيكي، يتعزز احتمال الحالات منخفضة التكلفة بالتداخل البنّاء.</p>
+      </article>
+      <article class="card mint">
+        <span class="emoji" aria-hidden="true">🔬</span><span class="step">4 · الواقع اليوم</span>
+        <h2>ما مدى واقعية هذا الحل اليوم؟</h2>
+        <p>على هذه الشبكة الصغيرة تحل الطرق الكلاسيكية المسألة فورًا، والـ <bdi dir="ltr">51%</bdi> عند <bdi dir="ltr">p = 3</bdi> جاءت من محاكاة مثالية بلا ضوضاء. الأجهزة الكمومية الحالية ما زالت محدودة بالضوضاء وعمق الدوائر، ولم يُثبت بعد تفوق كمي عام على أفضل الحلول الكلاسيكية في هذه المسائل.</p>
+      </article>
+    </section>
+
+    <aside class="honesty">
+      <span aria-hidden="true">⚖️</span>
+      <p><strong>مبدأ الصراحة العلمية في التحدي:</strong> هذا النموذج يوضّح الفكرة والرياضيات والربط بـ <bdi>Qiskit</bdi> على 6 كيوبتات فقط، ولا يعني أن الحوسبة الكمومية تتفوّق اليوم على الحوسبة الكلاسيكية في تخطيط حساسات الشبكات.</p>
+    </aside>
+
+    <section class="game" aria-labelledby="game-title">
+      <div>
+        <img class="wordmark" src="product/assets/unstate-logo.png" alt="UnState: every state, until we measure" width="1180" height="295">
+        <h2 id="game-title">جاهز للتحدي؟ <span aria-hidden="true">🚀</span></h2>
+        <p>معك 10 ثوانٍ في كل جولة لتوزّع الحساسات وتعيد القراءات المفقودة.</p>
+        <a class="cta light" href="https://eyes-on-the-grid-kacst.ovalibex32.chatgpt.site/" target="_blank" rel="noopener">العب اللعبة <span aria-hidden="true">🎮</span></a>
+      </div>
+      <a class="qr" href="https://eyes-on-the-grid-kacst.ovalibex32.chatgpt.site/" target="_blank" rel="noopener"><img src="product/assets/qr.png" alt="رمز QR للعبة الحساسات" width="888" height="888"></a>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="footer-links" aria-label="روابط الفريق">
+      <a href="product/team.html" target="_blank" rel="noopener"><span aria-hidden="true">👋</span> تعرّف على الفريق</a>
+      <a href="https://eyes-on-the-grid-kacst.ovalibex32.chatgpt.site/" target="_blank" rel="noopener"><span aria-hidden="true">🎮</span> العب اللعبة</a>
+    </nav>
+    <p>تحدي كاكست للحوسبة الكمومية 2026 · فريق 1 · <bdi>UnState</bdi></p>
+  </footer>
+</div>
+<script src="product/app.js"></script>
+</body>
+</html>

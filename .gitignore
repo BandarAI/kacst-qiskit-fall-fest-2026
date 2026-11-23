@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.qiskit-ibm.json
+.env
+ignore/
+product/assets/team/
