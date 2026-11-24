@@ -1,3 +1,5 @@
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=BandarAI.kacst-qiskit-fall-fest-2026">
+
 <p align="center">
   <img src="product/assets/unstate-banner.png" alt="UnState: every state, until we measure" width="720">
 </p>
